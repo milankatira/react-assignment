@@ -1,10 +1,16 @@
 import { BUY_SEAT } from './ActionType'
-export const BUYSEAT = (id,status) => {
+export const BUYSEAT = (data) => {
   return {
     type: BUY_SEAT,
-    payload: id,status
+    payload: data
   }
 }
+
+// const reduxAction = (data) => ({
+//   type: SOME_TYPE,
+//   payload: data
+//  });
+ 
 
 // export default BUYSEAT;
 

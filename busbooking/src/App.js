@@ -5,8 +5,9 @@ import ButtonRight from './ButtonRight';
 import {Provider} from 'react-redux';
 import Store from './Store';
 import HooksContainer from './HooksContainer';
-import Changecolor from './Changecolor';
-import UsersContainer from './practice';
+import './App.css';
+//import Changecolor from './Changecolor';
+//import UsersContainer from './practice';
 
 
 
@@ -24,8 +25,8 @@ function App() {
         <HooksContainer/>
         {/* <UsersContainer /> */}
         </Provider>
-        <Changecolor/>
-        <span>
+        {/* <Changecolor/> */}
+        {/* <span>
         <Button number={<h1>seatno-1</h1>}/>
         <Button number={<h1>seatno-2</h1>}/>
         <Button number={<h1>seatno-3</h1>}/>
@@ -40,7 +41,7 @@ function App() {
         <ButtonRight number={<h1>seatno-10</h1>}/>
         <ButtonRight number={<h1>seatno-11</h1>}/>
         <ButtonRight number={<h1>seatno-12</h1>}/>
-        </span>
+        </span> */}
       </div>
     </div>
   );

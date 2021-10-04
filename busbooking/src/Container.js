@@ -6,8 +6,31 @@ function Container(props) {
   return (
 
     <div>
-      <h2>Number of seats - {props.numOfseats} </h2>
-      <button onClick={props.BUYSEAT}>Buy seat</button>
+      <h2>{props.numOfseats} </h2>
+{/* 
+      {props.numOfseats.map((item) => {
+        return (
+          <div>
+            <h1>{item.id}</h1>
+            <h1>{item.status}</h1>
+          </div>
+        )
+      }
+
+      )
+      } */}
+
+      <button onClick={() => {
+        props.BUYSEATDATA(
+          (
+            {
+              id: 1,
+              status: true,
+            }
+          
+          )          
+        )
+      }}> add to card </button>
     </div>
   )
 }
@@ -21,7 +44,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    BUYSEAT: () => dispatch(BUYSEAT())
+    BUYSEATDATA: data => dispatch(BUYSEAT(data))
   }
 }
 

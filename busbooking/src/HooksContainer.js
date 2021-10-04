@@ -1,47 +1,82 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux'
 import { BUYSEAT } from './redux/Action'
-const HooksContainer = () => {
+import { initialState } from './redux/Reducer';
 
-    const numOfseats = useSelector(state => state.numOfseats);
+const HooksContainer = () => {
+    const ticketStatus = useSelector(state => state.bus);
     const dispatch = useDispatch();
 
+    // const whichClick=(ostatus)=>{
+    //     const arr = [...ticketStatus]
+    //     const objIndex = arr.find(obj => obj.status == ostatus)
+    //     if(obj.status==true)
+    //     {
+    //     alert("hello")
+    //     }
+    // }
+    // const whichClick=()=>{
+    // alert("hello")
+    // }
+
+    // const alertfunction = (ostatus) => {
+    //     if (ostatus == true) {
+    //         alert('seat is already booked')
+    //     }
+    // }
+
+    // const changecolor = (ostatus) => {
+    //     if (ostatus == true) {
+
+    //     }
+    // }
+    const onclickhandler = (id, ostatus) => {
+        const arr = [...ticketStatus]
+        const objIndex = arr.findIndex(obj => obj.id == id)
+        arr[objIndex].status = true
+
+        if (ostatus == true) {
+            alert('seat is already booked')
+        }
+
+        else {
+            dispatch(BUYSEAT(arr))
+        }
+    }
+
+    // let successtyle = {
+    //     backgroundcolor: '#4ef542'
+    // }
+
+    // let worningstyle = {
+    //     backgroundcolor: '#4ef2'
+    // }
     return (
-
         <div className="seat_status">
-            <div className="text">
-                <h1>seatno-1</h1>
-                {/* { numOfseats.map((item, i) =>
-                    <div key={i}>
-                        <h1>{item.id}</h1>
-                        <h1>{item.status}</h1>
 
+
+            {ticketStatus.map((item) => {
+                return (
+                    <div className='button_size'>
+                        <button                            
+                            style={{ backgroundColor: (item.status==true) ? '#ff6b6b' : '#90ff6b' ,
+                            margin:'10px',
+                            height: '30px',
+                            width: '60px',
+                            color: 'black',
+                            alignitem: 'center',
+                            border: 'none',
+                            }}
+                            onClick={() => { onclickhandler(item.id, item.status) }} > seat.{item.id}</button>
                     </div>
+                )
+            }
 
-                )} */}
-                {numOfseats}
+            )
+            }
 
-
-                <button style={{
-                    backgroundColor: '#2f7542',
-                    color: "white",
-                    border: 0,
-                    padding: 10,
-
-                }} onClick={() => dispatch(BUYSEAT(1, true))} >buy seats</button>
-                {/* console.log(BUYSEAT(2,true)) */}
-                {/* {users.map((item,i)=>
-            <tr key={i}>
-            <td>{item.userId}</td>
-          <td>{item.name}</td>
-          <td>{item.email}</td>
-            <td>{item.mobile}</td>
-          </tr>
-          ) */}
-
-            </div>
-        </div>
+        </div >
     )
 }
 
