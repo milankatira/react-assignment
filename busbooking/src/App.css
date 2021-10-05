@@ -2,57 +2,13 @@
   font-family: 'Yaldevi', sans-serif;
 }
 
- 
-/* .button_css{
-background-color:#5ae07e;
-border:1px solid black;
-color:black;
-border-radius:5px;
-height: 39px;
-width: 83px;
-align-items: center;
-} */
-
-/* .button_size{
-
-color:white;
-float:left;
-flex-direction:row;
-align-items: center;
-display: flex;
-} */
+.table{
+border:12px solid #9afcb9;
+}
 .App {
   text-align: center;
 }
 
-/* .container {
-  background-color: teal;
-  color: white;
-  margin: 40px;
-  padding: 15px;
-  margin-left: 10%;
-  margin-right: 10%;
-  border-radius: 50px;
-  text-align: center;
-  height:auto;
-  width:auto;
-  align-items: center;
-} */
-
-
-/* .seat_status{
-  display:flex;
- margin:10px;
- background-color:#111 ;
- border: 5px solid white;
- border-radius: 5px;
- margin-left:20%;
- margin-right:23%;
- height:auto;
- width:auto;
- align-items: center;
- 
-} */
 
 .text{
  margin:20px;
@@ -84,17 +40,7 @@ display: flex;
   justify-content: center;
   flex-wrap:wrap;
   }
-  
-  /* .button_css{
-  margin:10px;
-  height:30px;
-  width:60px;
-  color:white;
-  background-color:#32a83e;
-  align-item:center;
-  border:none;
-  } */
-  
+    
   .button_css{
     margin: 10px;
     height: 30px;
@@ -115,7 +61,3 @@ display: flex;
   border: none;
 }
 
-/*   
-button:visited{
-background-color:#eb4c34;
-} */

@@ -6,12 +6,4 @@ export const BUYSEAT = (data) => {
   }
 }
 
-// const reduxAction = (data) => ({
-//   type: SOME_TYPE,
-//   payload: data
-//  });
- 
-
-// export default BUYSEAT;
-
 
