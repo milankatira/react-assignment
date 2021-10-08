@@ -17,6 +17,7 @@ function App() {
           <Route path="/aboutus" exact component={About} />
           <Route path="/contactus" exact component={Contact} />
           <Route path="/user" exact component={User}/>
+          {/* <Route path='/tryb' exact component={} */}
           <Route component={Error}></Route>
         </Switch>
       </Router>

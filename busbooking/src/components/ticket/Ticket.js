@@ -3,13 +3,14 @@ import '../../App.css';
 import HooksContainer from './HooksContainer'
 import { Provider } from 'react-redux';
 import Store from '../../Store';
+import Fade from 'react-reveal/Fade';
 import {NavLink,Link} from 'react-router-dom'
 const Ticket = () => {
     return (
 
         <div>
             <div>
-                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
                     <div className="container-fluid">
                         <b className="navbar-brand" href="#">Comper<span>T</span>ur</b>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,9 +28,13 @@ const Ticket = () => {
                     </div>
                 </nav>
             </div>
-
+<br />
+<br />
+<br />
             <div className="App">
+            <Fade bottom>
                 <h1>welcome to bus booking system</h1>
+                </Fade>
             </div>
 
             <div className="container">

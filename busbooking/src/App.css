@@ -3,7 +3,7 @@
 }
 
 .table{
-border:12px solid #9afcb9;
+border:20px solid #9afcb9;
 }
 .App {
   text-align: center;
@@ -61,3 +61,18 @@ border:12px solid #9afcb9;
   border: none;
 }
 
+.buttons-ui{
+  height: 50px;
+  width: 70px;
+  color: black;
+  align-item: center;
+  text-decoration: none;
+  border-radius:20px;
+  margin:0px;
+  left:0px;
+}
+
+.buttons-ui:hover{
+color:#c3ffb8;
+background-color:black;
+}
