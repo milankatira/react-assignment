@@ -3,32 +3,55 @@ import {
     USERS_SUCCESS,
     USERS_FAILURE,
     USERS_UPDATE,
+    USERS_DELETE,
+    USERS_ADD,
 } from './UserTypes'
 
-export const initialState = [{
+export const initialState = {
     users: [],
     error: '',
-    data: '',
-}]
+    loading: false,
+}
 
 const Reducer = (state = initialState, action) => {
     switch (action.type) {
         case USERS_REQUEST:
-            return [
+            return {
                 ...state,
-            ]
+                loading: true,
+            }
+            
         case USERS_SUCCESS:
-            return [
-                ...action.payload
-            ]
+            return {
+                loading: false,
+                users: action.payload,
+                error: ''
+            }
         case USERS_FAILURE:
-            return [
-            ...action.payload
-            ]
+            return {
+                loading: false,
+                users: [],
+                error: action.payload
+            }
         case USERS_UPDATE:
-            return [
-            ...action.payload
-            ]
+            return  {
+                loading: false,
+                users: action.payload,
+                error: ''
+            }
+            
+        case USERS_DELETE:
+            return  {
+                loading: false,
+                users: action.payload,
+                error: ''
+            }
+        case USERS_ADD:
+            return  {
+                loading: false,
+                users: action.payload,
+                error: ''
+            }
         default: return state
     }
 }

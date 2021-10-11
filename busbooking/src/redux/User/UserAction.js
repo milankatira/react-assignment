@@ -5,6 +5,8 @@ import {
     USERS_SUCCESS,
     USERS_FAILURE,
     USERS_UPDATE,
+    USERS_DELETE,
+    USERS_ADD,
 } from './UserTypes'
 export const fetchUsersRequest = (data) => {
     return {
@@ -28,6 +30,20 @@ export const fetchUsersUpdate = (data) => {
     return {
         type: USERS_UPDATE,
         payload: data
+    }
+}
+
+export const fetchUsersDelete = (user) => {
+    return {
+        type: USERS_DELETE,
+        payload: user
+    }
+}
+
+export const fetchUsersAdd = (user) => {
+    return {
+        type: USERS_ADD,
+        payload: user
     }
 }
 export const fetchUsers = () => {

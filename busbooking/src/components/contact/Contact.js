@@ -10,7 +10,7 @@ function Contact() {
       <div>
         <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
           <div className="container-fluid">
-            <b className="navbar-brand" href="#">Comper<span>T</span>ur</b>
+            <b className="navbar-brand" href="#" style={{color:"#b2ff96"}}>Comper<span>T</span>ur</b>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
