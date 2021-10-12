@@ -4,3 +4,4 @@ export const USERS_FAILURE='USER_FAILURE'
 export const USERS_UPDATE="USER_UPDATE"
 export const USERS_DELETE="USER_DELETE"
 export const USERS_ADD="USER_ADD"
+export const USERS_LOGIN="USER_LOGIN"

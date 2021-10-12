@@ -1,4 +1,3 @@
-import React from "react";
 import { css } from "@emotion/react";
 import ClipLoader from "react-spinners/ClipLoader";
 import styled from "styled-components";
@@ -12,6 +11,7 @@ import {
   fetchUsersDelete,
   fetchUsersAdd,
 } from "../../redux/User/UserAction";
+
 import swal from "sweetalert";
 function UserHook() {
   const userData = useSelector((state) => state.user);
@@ -63,7 +63,30 @@ function UserHook() {
     arr[objIndex].name = selecteduser.name;
     arr[objIndex].username = selecteduser.username;
     arr[objIndex].email = selecteduser.email;
-    dispatch(fetchUsersUpdate(arr));
+    if (
+      (selecteduser.name === "" ||
+        selecteduser.email === "" ||
+        selecteduser.username === "") === true
+    ) {
+      swal({
+        title: "Error",
+        text: "value is not empty",
+        icon: "error",
+        button: "ok",
+      });
+      
+    }
+    else if((userData.users.name) ===true){
+      swal({
+        title: "Error",
+        text: "value is not empty",
+        icon: "error",
+        button: "ok",
+      });
+    }
+    else {
+      dispatch(fetchUsersUpdate(arr));
+    }
   };
 
   const DeleteUser = (id) => {
@@ -140,13 +163,6 @@ function UserHook() {
                     edit
                   </button>
                   <button onClick={() => DeleteUser(user.id)}>delete</button>
-                  <button
-                    onClick={() => addSelector()}
-                    data-bs-toggle="modal"
-                    data-bs-target="#addmodal"
-                  >
-                    add
-                  </button>
                 </Container>
               </td>
             </tr>
@@ -154,6 +170,7 @@ function UserHook() {
         </tbody>
       </Table>
       {/* //update modal */}
+
       <div
         class="modal fade rounded"
         id="updatemodal"
@@ -327,7 +344,7 @@ const Container = styled.div`
   flex-wrap: no-wrap;
   justify-content: flex-end;
   align-items: center;
-  flex:0.2;
+  flex: 0.2;
   button {
     margin: 5px;
     color: black;
@@ -349,11 +366,10 @@ const Container = styled.div`
   }
 `;
 
-
 const Loading = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   color: #b2ff96;
-  margin:auto center;
+  margin: auto center;
 `;
