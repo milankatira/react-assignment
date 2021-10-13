@@ -68,10 +68,5 @@ export const fetchUsers = () => {
       .catch((error) => {
         dispatch(fetchUsersFailure(error.message));
       });
-    // .then(response => {
-    //     dispatch(fetchUsersRequest(response.data))
-    // }
-    // )
-    // .then(response =>{ dispatch (fetchUsersUpdate(response.data))})
   };
 };

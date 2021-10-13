@@ -1,6 +1,5 @@
 import React from "react";
 import "./About.css";
-import {NavLink,Link} from 'react-router-dom'
 const About_us =
   "https://images.unsplash.com/photo-1462826303086-329426d1aef5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
 
@@ -12,7 +11,7 @@ function About() {
         style={{ backgroundImage: `url(${About_us}` }}
       ></div>
       <div className="aboutBottom">
-        <h1> ABOUT US</h1>
+        <h1> About Us</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
           mollitia, molestiae quas vel sint commodi repudiandae consequuntur

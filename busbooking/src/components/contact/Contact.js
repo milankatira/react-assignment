@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink, Link } from 'react-router-dom'
 import "./Contact.css";
 const Contactus = "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29udGFjdCUyMHVzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60"
 

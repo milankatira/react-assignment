@@ -1,34 +1,14 @@
 import styled from "styled-components";
 import React from "react";
-import { useSelector } from "react-redux";
 import { Provider } from "react-redux";
 import Store from "../../Store";
 import UserHook from "./UserHook";
 import Fade from "react-reveal/Fade";
-import Login from "../userlogin/Login";
-import Logincontainer from "../userlogin/Logincontainer";
 
 const User = () => {
- // const loginData = useSelector((state) => state.login);
-
   return (
     <>
-      <br />
-      <br />
-      <br />
-      <div>
-        {/* <div>
-          {loginData.isLogin ? (
-            <Provider store={Store}>
-              <UserHook />
-            </Provider>
-          ) : (
-            <Provider store={Store}>
-              <Logincontainer />
-            </Provider>
-          )}
-        </div> */}
-        
+      <Container>
         <Fade top big>
           <Name>hello user</Name>
         </Fade>
@@ -36,7 +16,7 @@ const User = () => {
         <Provider store={Store}>
           <UserHook />
         </Provider>
-      </div>
+      </Container>
     </>
   );
 };
@@ -49,3 +29,9 @@ const Name = styled.div`
   height: 100%;
   font-size: 25px;
 `;
+
+
+const Container = styled.div`
+margin-top: 50px;
+padding-top: 50px
+`

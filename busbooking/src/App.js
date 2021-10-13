@@ -8,12 +8,11 @@ import User from "./components/User/User";
 import Error from "./components/Error/Error";
 import Login from './components/userlogin/Login'
 import Navbar from "./components/navbar/Navbar";
-import Userlink from "./components/User/Userlink";
 function App() {
   return (
     <div>
       <Router>
-      <Navbar/>
+        <Navbar />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/booking" exact component={Ticket} />

@@ -13,6 +13,8 @@ import {
 } from "../../redux/User/UserAction";
 
 import swal from "sweetalert";
+import Modal from "./Modal";
+
 function UserHook() {
   const userData = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -23,9 +25,8 @@ function UserHook() {
     email: "",
   });
   const [adddata, setAdddata] = useState({ name: "", username: "", email: "" });
-  const [searchTerm, setSearchTerm] = useState("");
-  let [loading, setLoading] = useState(true);
-  let [color, setColor] = useState("#f8f8f8");
+  let [loading] = useState(true);
+  let [color] = useState("#f8f8f8");
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -74,17 +75,19 @@ function UserHook() {
         icon: "error",
         button: "ok",
       });
-      
-    }
-    else if((userData.users.name) ===true){
+    } else if (
+      (userData.users.name === selecteduser.name ||
+        userData.users.username === selecteduser.username ||
+        userData.users.email === selecteduser.email ) === true
+    ) {
       swal({
         title: "Error",
         text: "value is not empty",
         icon: "error",
         button: "ok",
       });
-    }
-    else {
+    } else {
+
       dispatch(fetchUsersUpdate(arr));
     }
   };
@@ -127,6 +130,13 @@ function UserHook() {
     <h2>{userData.error}</h2>
   ) : (
     <div>
+      {/* <Name
+        if ( name === "milan"){
+        name = "milan"}
+      else {
+        name = "error"
+      }
+    /> */}
       <Container>
         <button
           onClick={() => addSelector()}
@@ -136,9 +146,8 @@ function UserHook() {
           add
         </button>
       </Container>
-
       <Table>
-        <tbody>
+        <tbody >
           <tr>
             <th>id</th>
             <th>Name</th>
@@ -169,170 +178,65 @@ function UserHook() {
           ))}
         </tbody>
       </Table>
-      {/* //update modal */}
 
-      <div
-        class="modal fade rounded"
-        id="updatemodal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="loginModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
-                edit user data
-              </h5>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  value={selecteduser.id}
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  disabled
-                  readonly
-                ></input>
-              </div>
-              <br />
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  value={selecteduser.name}
-                  placeholder="enter your name"
-                  onChange={(e) =>
-                    setSelecteduser({
-                      ...selecteduser,
-                      name: e.target.value,
-                    })
-                  }
-                />
-              </div>
-              <br />
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  value={selecteduser.username}
-                  placeholder="enter your username"
-                  onChange={(e) =>
-                    setSelecteduser({
-                      ...selecteduser,
-                      username: e.target.value,
-                    })
-                  }
-                />
-              </div>
-              <br />
-              <div class="form-group">
-                <input
-                  type="email"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  value={selecteduser.email}
-                  placeholder="enter your email"
-                  onChange={(e) =>
-                    setSelecteduser({
-                      ...selecteduser,
-                      email: e.target.value,
-                    })
-                  }
-                />
-              </div>
-              <br />
-              <button class="btn btn-dark" onClick={() => UpdateUser()}>
-                Done
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+        <Modal
+          id="updatemodal"
+          title="update user"
+          textvalue1={selecteduser.id}
+          name={selecteduser.name}
+          email={selecteduser.email}
+          username={selecteduser.username}
+          func={() => UpdateUser()}
+          setname={
+          
+          (e) =>
+            setSelecteduser({
+              ...selecteduser,
+              name: e.target.value,
+            })
+            
+          }
+          setusername={(e) =>
+            setSelecteduser({
+              ...selecteduser,
+              username: e.target.value,
+            })
+          }
+          
+          setemail={(e) =>
+            setSelecteduser({
+              ...selecteduser,
+              email: e.target.value,
+            })
+          }
+        />
 
-      {/* add modal */}
-      <div
-        class="modal fade rounded"
-        id="addmodal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="loginModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
-                edit user data
-              </h5>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  value={adddata.name}
-                  placeholder="enter your name"
-                  onChange={(e) =>
-                    setAdddata({
-                      ...adddata,
-                      name: e.target.value,
-                    })
-                  }
-                />
-              </div>
-              <br />
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  value={adddata.username}
-                  placeholder="enter your username"
-                  onChange={(e) =>
-                    setAdddata({
-                      ...adddata,
-                      username: e.target.value,
-                    })
-                  }
-                />
-              </div>
-              <br />
-              <div class="form-group">
-                <input
-                  type="email"
-                  class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  value={adddata.email}
-                  placeholder="enter your email"
-                  onChange={(e) =>
-                    setAdddata({
-                      ...adddata,
-                      email: e.target.value,
-                    })
-                  }
-                />
-              </div>
-              <br />
-              <button class="btn btn-dark" onClick={() => AddUser()}>
-                Done
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+        <Modal
+          title="add new user"
+          name={adddata.name}
+          email={adddata.email}
+          username={adddata.username}
+          id="addmodal"
+          func={() => AddUser()}
+          setname={(e) =>
+            setAdddata({
+              ...adddata,
+              name: e.target.value,
+            })
+          }
+          setusername={(e) =>
+            setAdddata({
+              ...adddata,
+              username: e.target.value,
+            })
+          }
+          setemail={(e) =>
+            setAdddata({
+              ...adddata,
+              email: e.target.value,
+            })
+          }
+        />
     </div>
   );
 }

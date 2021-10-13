@@ -4,7 +4,6 @@ import HooksContainer from "./HooksContainer";
 import { Provider } from "react-redux";
 import Store from "../../Store";
 import Fade from "react-reveal/Fade";
-import { NavLink, Link } from "react-router-dom";
 const Ticket = () => {
   return (
     <div>

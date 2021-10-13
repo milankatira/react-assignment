@@ -2,30 +2,30 @@ import React from "react";
 import styled from "styled-components";
 import "./Home.css";
 import Fade from "react-reveal/Fade";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div>
       <Wrap >
-    
-          <Fade bottom cascade>
-            <ItemText>
-              <h1>book your tour</h1>
-              <p>book ticket online for tour</p>
-            </ItemText>
-          </Fade>
 
-          <Fade bottom cascade>
-                    <Link
-                  className="button-login"
-                  exact
-                  to="/login"
-                  activeClassName="active"
-                >
-                  Login
-                </Link>
-          </Fade>
-    
+        <Fade bottom cascade>
+          <ItemText>
+            <h1>book your tour</h1>
+            <p>book ticket online for tour</p>
+          </ItemText>
+        </Fade>
+
+        <Fade bottom cascade>
+          <Link
+            className="button-login"
+            exact
+            to="/login"
+            activeClassName="active"
+          >
+            Login
+          </Link>
+        </Fade>
+
       </Wrap>
     </div>
   );
