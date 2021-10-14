@@ -65,9 +65,9 @@ function UserHook() {
     arr[objIndex].username = selecteduser.username;
     arr[objIndex].email = selecteduser.email;
     if (
-      (selecteduser.name === "" ||
+      selecteduser.name === "" ||
         selecteduser.email === "" ||
-        selecteduser.username === "") === true
+        selecteduser.username === ""
     ) {
       swal({
         title: "Error",
@@ -76,18 +76,17 @@ function UserHook() {
         button: "ok",
       });
     } else if (
-      (userData.users.name === selecteduser.name ||
-        userData.users.username === selecteduser.username ||
-        userData.users.email === selecteduser.email ) === true
+      arr[objIndex].name === selecteduser.name ||
+      arr[objIndex].username === selecteduser.username ||
+      arr[objIndex].email === selecteduser.email
     ) {
       swal({
         title: "Error",
-        text: "value is not empty",
+        text: "value is same empty",
         icon: "error",
         button: "ok",
       });
     } else {
-
       dispatch(fetchUsersUpdate(arr));
     }
   };
@@ -147,7 +146,7 @@ function UserHook() {
         </button>
       </Container>
       <Table>
-        <tbody >
+        <tbody>
           <tr>
             <th>id</th>
             <th>Name</th>
@@ -179,64 +178,60 @@ function UserHook() {
         </tbody>
       </Table>
 
-        <Modal
-          id="updatemodal"
-          title="update user"
-          textvalue1={selecteduser.id}
-          name={selecteduser.name}
-          email={selecteduser.email}
-          username={selecteduser.username}
-          func={() => UpdateUser()}
-          setname={
-          
-          (e) =>
-            setSelecteduser({
-              ...selecteduser,
-              name: e.target.value,
-            })
-            
-          }
-          setusername={(e) =>
-            setSelecteduser({
-              ...selecteduser,
-              username: e.target.value,
-            })
-          }
-          
-          setemail={(e) =>
-            setSelecteduser({
-              ...selecteduser,
-              email: e.target.value,
-            })
-          }
-        />
+      <Modal
+        id="updatemodal"
+        title="update user"
+        textvalue1={selecteduser.id}
+        name={selecteduser.name}
+        email={selecteduser.email}
+        username={selecteduser.username}
+        func={() => UpdateUser()}
+        setname={(e) =>
+          setSelecteduser({
+            ...selecteduser,
+            name: e.target.value,
+          })
+        }
+        setusername={(e) =>
+          setSelecteduser({
+            ...selecteduser,
+            username: e.target.value,
+          })
+        }
+        setemail={(e) =>
+          setSelecteduser({
+            ...selecteduser,
+            email: e.target.value,
+          })
+        }
+      />
 
-        <Modal
-          title="add new user"
-          name={adddata.name}
-          email={adddata.email}
-          username={adddata.username}
-          id="addmodal"
-          func={() => AddUser()}
-          setname={(e) =>
-            setAdddata({
-              ...adddata,
-              name: e.target.value,
-            })
-          }
-          setusername={(e) =>
-            setAdddata({
-              ...adddata,
-              username: e.target.value,
-            })
-          }
-          setemail={(e) =>
-            setAdddata({
-              ...adddata,
-              email: e.target.value,
-            })
-          }
-        />
+      <Modal
+        title="add new user"
+        name={adddata.name}
+        email={adddata.email}
+        username={adddata.username}
+        id="addmodal"
+        func={() => AddUser()}
+        setname={(e) =>
+          setAdddata({
+            ...adddata,
+            name: e.target.value,
+          })
+        }
+        setusername={(e) =>
+          setAdddata({
+            ...adddata,
+            username: e.target.value,
+          })
+        }
+        setemail={(e) =>
+          setAdddata({
+            ...adddata,
+            email: e.target.value,
+          })
+        }
+      />
     </div>
   );
 }
