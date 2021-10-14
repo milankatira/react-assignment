@@ -57,7 +57,7 @@ export const fetchUsersAdd = (user) => {
 };
 export const fetchUsers = () => {
   return (dispatch) => {
-    dispatch(fetchUsersRequest());
+   dispatch(fetchUsersRequest());
     axios
       .get("http://jsonplaceholder.typicode.com/users")
       .then((response) => {
