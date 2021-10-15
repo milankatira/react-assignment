@@ -3,7 +3,9 @@ import styled from "styled-components";
 import "./Home.css";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
+// import {useSelector} from 'react-redux';
 const Home = () => {
+ // const loginData = useSelector((state) => state.login);
   return (
     <div>
       <Wrap >
@@ -16,13 +18,14 @@ const Home = () => {
         </Fade>
 
         <Fade bottom cascade>
+        
           <Link
             className="button-login"
             exact
-            to="/login"
+            to="/user"
             activeClassName="active"
           >
-            Login
+            users
           </Link>
         </Fade>
 
