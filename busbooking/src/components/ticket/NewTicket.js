@@ -5,9 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/login/UserAction";
 import { Button } from "react-bootstrap";
 // import { useHistory } from "react-router-dom";
-import User from "../User/User";
+import Ticket from "./Ticket";
+import Home from "../Home/Home";
 
-const Logincontainer = () => {
+const NewTicket = () => {
   // const history = useHistory();
   const loginData = useSelector((state) => state.login);
   const dispatch = useDispatch();
@@ -38,9 +39,7 @@ const Logincontainer = () => {
   return (
     <>
       {loginData.isLogin ? (
-      
-      // if login render User component 
-        <User />
+        <Home />
       ) : (
         <Container>
           <input
@@ -59,12 +58,12 @@ const Logincontainer = () => {
             Login
           </Button>
         </Container>
-      ) }
+      )}
     </>
   );
 };
 
-export default Logincontainer;
+export default NewTicket;
 
 const Container = styled.div`
   display: flex;

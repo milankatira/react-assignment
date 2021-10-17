@@ -6,6 +6,7 @@ import swal from 'sweetalert';
 
 const HooksContainer = () => {
     const ticketStatus = useSelector(state => state.bus);
+    
     const dispatch = useDispatch();
 
     const onclickhandler = (id, ostatus) => {

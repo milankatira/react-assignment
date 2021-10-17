@@ -61,19 +61,7 @@ function UserHook() {
   const UpdateUser = () => {
     const arr = [...userData.users];
     const objIndex = arr.findIndex((obj) => obj.id === selecteduser.id);
-
     if (
-      arr[objIndex].name === selecteduser.name &&
-      arr[objIndex].username === selecteduser.username &&
-      arr[objIndex].email === selecteduser.email
-    ) {
-      swal({
-        title: "Error",
-        text: "value is not same",
-        icon: "error",
-        button: "ok",
-      });
-    } else if (
       selecteduser.name === "" ||
       selecteduser.email === "" ||
       selecteduser.username === ""
@@ -84,7 +72,21 @@ function UserHook() {
         icon: "error",
         button: "ok",
       });
-    } else {
+    } 
+    else if (
+      arr[objIndex].name === selecteduser.name &&
+      arr[objIndex].username === selecteduser.username &&
+      arr[objIndex].email === selecteduser.email
+    ) {
+      swal({
+        title: "Error",
+        text: "value is same",
+        icon: "error",
+        button: "ok",
+      });
+    }  
+    
+    else {
       arr[objIndex].name = selecteduser.name;
       arr[objIndex].username = selecteduser.username;
       arr[objIndex].email = selecteduser.email;

@@ -7,20 +7,22 @@
 // import { Provider } from "react-redux";
 // import Store from "../../Store";
 
+// import UserHook from "./UserHook";
+
 // const Userlink = () => {
 //   const loginData = useSelector((state) => state.login);
 //   return (
-//     <div>
-//       {/* {loginData.isLogin ? (
-//         <Provider store={Store}>
-//           <Logincontainer />
-//         </Provider>
-//       ) : (
-//         <Provider store={Store}>
-//           <Logincontainer />
-//         </Provider>
-//       )} */}
-//     </div>
+    // <div>
+    //   {loginData.isLogin ? (
+    //     <Provider store={Store}>
+    //       <UserHook />
+    //     </Provider>
+    //   ) : (
+    //     <Provider store={Store}>
+    //       <Logincontainer />
+    //     </Provider>
+    //   )}
+    // </div>
 //   );
 // };
 
