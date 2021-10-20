@@ -4,22 +4,36 @@ import Ticket from "./components/ticket/Ticket";
 import Home from "./components/Home/Home";
 import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
-// import User from "./components/User/User";
 import Error from "./components/Error/Error";
-import Login from './components/userlogin/Login'
+import Login from "./components/userlogin/Login";
 import Navbar from "./components/navbar/Navbar";
+import Calculator from "./components/calculator/Calculator";
+import Signup from "./components/signup/Signup";
+import { useEffect, useState } from "react";
+import { auth } from "./components/firebase/firebase";
+
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+    if (user)setUser(user)
+    else setUser(null)
+    });
+  }, []);
+
   return (
     <div>
       <Router>
-        <Navbar />
+        <Navbar user={user} />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/booking" exact component={Ticket} />
+          <Route path="/booking" ><Ticket user={user}/></Route>
           <Route path="/aboutus" exact component={About} />
           <Route path="/contactus" exact component={Contact} />
           <Route path="/user" exact component={Login} />
-          {/* <Route path="/login" exact component={Login} /> */}
+          <Route path="/calculator" exact component={Calculator} />
+          <Route path="/signup" exact component={Signup} />
           <Route component={Error}></Route>
         </Switch>
       </Router>

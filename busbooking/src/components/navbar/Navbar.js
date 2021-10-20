@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-const Navbar = () => {
+const Navbar = ({ user }) => {
   return (
     <div>
       <nav className="navbar  fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -61,6 +61,35 @@ const Navbar = () => {
               >
                 user
               </NavLink>
+
+              <NavLink
+                className="nav-link"
+                exact
+                to="/calculator"
+                activeClassName="active"
+              >
+                calculator
+              </NavLink>
+
+              {user ? (
+                <NavLink
+                  className="nav-link"
+                  exact
+                  to="/signup"
+                  activeClassName="active"
+                >
+                  signup
+                </NavLink>
+              ) : (
+                <NavLink
+                  className="nav-link"
+                  exact
+                  to="/signup"
+                  activeClassName="active"
+                >
+                  login
+                </NavLink>
+              )}
             </div>
           </div>
         </div>
