@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState("login");
   const history = useHistory();
 
   const handleSubmit = async (e) => {
@@ -81,6 +81,8 @@ const Signup = () => {
           </div>
         </form>
       )}
+      
+      
       {value === "signup" ? (
         <Button
           onClick={() => {

@@ -26,6 +26,8 @@ border:20px solid #9afcb9;
   align-items: center;
   justify-content: center;
   flex-direction:column;
+  height:auto;
+  padding-bottom:30px;
   }
   
   .seat_status{
@@ -90,3 +92,4 @@ border:20px solid #9afcb9;
   
 
 }
+

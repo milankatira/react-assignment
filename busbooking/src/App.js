@@ -1,6 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Ticket from "./components/ticket/Ticket";
+// import Ticket from "./components/ticket/Ticket";
+import NewTicket from "./components/ticket/NewTicket";
 import Home from "./components/Home/Home";
 import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
@@ -11,29 +12,56 @@ import Calculator from "./components/calculator/Calculator";
 import Signup from "./components/signup/Signup";
 import { useEffect, useState } from "react";
 import { auth } from "./components/firebase/firebase";
+import AddEdit from "./components/crud/AddEdit";
+import View from "./components/crud/View";
+import { HomeC } from "./components/crud/Home";
+import { AboutC } from "./components/crud/About";
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [user, setUser] = useState(null);
-
+  let unsubscribe = () => {};
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-    if (user)setUser(user)
-    else setUser(null)
+    unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) setUser(user);
+      else setUser(null);
     });
+
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   return (
     <div>
       <Router>
         <Navbar user={user} />
+        <ToastContainer position="top-centre" />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/booking" ><Ticket user={user}/></Route>
+          <Route path="/booking">
+            <NewTicket user={user} />
+          </Route>
           <Route path="/aboutus" exact component={About} />
           <Route path="/contactus" exact component={Contact} />
-          <Route path="/user" exact component={Login} />
+          <Route path="/user">
+            <Login user={user} />
+          </Route>
           <Route path="/calculator" exact component={Calculator} />
           <Route path="/signup" exact component={Signup} />
+
+          {/* //crud route */}
+          <Route path="/home" exact component={HomeC} />
+          <Route path="/edit" exact component={AddEdit} />
+          <Route path="/update" exact component={AddEdit} />
+          <Route path="/update/:id" exact component={AddEdit} />
+          <Route path="/view" exact component={View} />
+          <Route path="/view/:id" exact component={View} />
+          <Route path="/about" exact component={AboutC} />
+
+          {/* error */}
           <Route component={Error}></Route>
         </Switch>
       </Router>

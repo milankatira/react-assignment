@@ -72,8 +72,7 @@ function UserHook() {
         icon: "error",
         button: "ok",
       });
-    } 
-    else if (
+    } else if (
       arr[objIndex].name === selecteduser.name &&
       arr[objIndex].username === selecteduser.username &&
       arr[objIndex].email === selecteduser.email
@@ -84,13 +83,10 @@ function UserHook() {
         icon: "error",
         button: "ok",
       });
-    }  
-    
-    else {
+    } else {
       arr[objIndex].name = selecteduser.name;
       arr[objIndex].username = selecteduser.username;
       arr[objIndex].email = selecteduser.email;
-
       dispatch(fetchUsersUpdate(arr));
     }
   };

@@ -5,6 +5,53 @@ import { Provider } from "react-redux";
 import Store from "../../Store";
 import Fade from "react-reveal/Fade";
 const Ticket = () => {
+
+  // const history = useHistory();
+
+  // const [value, setValue] = useState("");
+  // useEffect(() => {
+  //   if (user) {
+  //     const docRef = db.collection("userData").doc(user.uid);
+  //     var unsubscribe = docRef.onSnapshot((docSnap) => {
+  //       if (docSnap.exists) {
+  //         console.log(docSnap.data().userData);
+  //         setMytodos(docSnap.data().userData);
+  //       } else {
+  //         console.log("nothing");
+  //       }
+  //     });
+  //   } else {
+  //     history.push("/");
+  //   }
+
+  //   return () => {
+  //     unsubscribe();
+  //   };
+  // }, []);
+
+  // const addTodo = () => {
+  //   db.collection("userData")
+  //     .doc(user.uid)
+  //     .set({
+  //       todos: [...mytodos, value]
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   const todoRef = firebase.database().ref("Todo");
+  //   todoRef.on("value", (snapshot) => {
+  //     const todos = snapshot.val();
+  //     const todoList = [];
+  //     for (let id in todos) {
+  //       todoList.push(todos[id]);
+  //     }
+  //     console.log(todoList);
+  //     setTodolist(todoList);
+  //   });
+  // },[]);
+  
+  
+  
   return (
     <div>
       <br />
@@ -22,6 +69,15 @@ const Ticket = () => {
           <HooksContainer />
         </Provider>
       </div>
+{/* 
+      <div>
+        <input
+          type="text"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          placeholder="enter todos"
+        />
+      </div> */}
     </div>
   );
 };
