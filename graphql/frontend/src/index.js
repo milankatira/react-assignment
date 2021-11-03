@@ -10,11 +10,13 @@ import {
 } from "@apollo/client";
 
 const client = new ApolloClient({
-cache:new InMemoryCache()
-})
+  cache: new InMemoryCache(),
+  uri: "http://localhost:4000/graphql",
+});
+
 ReactDOM.render(
-  <React.StrictMode>
+  <ApolloProvider client={client}>
     <App />
-  </React.StrictMode>,
+  </ApolloProvider>,
   document.getElementById("root")
 );
